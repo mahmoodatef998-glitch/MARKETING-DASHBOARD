@@ -1,26 +1,174 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Gold palette — from the actual ALANANI logo */
+  --gold: #D4AF3C;
+  --gold-light: #F0CA5A;
+  --gold-dark: #A8862A;
+  /* Royal navy blue — matching the menu cover background */
+  --navy: #0C1130;
+  --navy-light: #111840;
+  --navy-mid: #172050;
+  --navy-card: #111640;
+  --navy-card-soft: #0F1438;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-gold: #D4AF3C;
+  --color-gold-light: #F0CA5A;
+  --color-gold-dark: #A8862A;
+  --color-navy: #0C1130;
+  --color-navy-light: #111840;
+  --color-navy-mid: #172050;
+  --color-navy-card: #111640;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; background-color: #0C1130; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0C1130;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0C1130; }
+::-webkit-scrollbar-thumb { background: #D4AF3C; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #F0CA5A; }
+
+/* ── Gold utilities ───────────────────────────────── */
+.gold-glow    { box-shadow: 0 0 24px rgba(212,175,60,0.35), 0 0 48px rgba(212,175,60,0.12); }
+.gold-glow-sm { box-shadow: 0 0 12px rgba(212,175,60,0.3); }
+.gold-text-glow { text-shadow: 0 0 24px rgba(212,175,60,0.55); }
+
+.card-hover-glow { transition: box-shadow 0.3s ease, transform 0.3s ease; }
+.card-hover-glow:hover {
+  box-shadow: 0 0 0 1px rgba(212,175,60,0.45),
+              0 0 24px rgba(212,175,60,0.18),
+              0 24px 64px rgba(0,0,0,0.5);
+  transform: translateY(-4px);
+}
+
+.gradient-gold {
+  background: linear-gradient(135deg, #D4AF3C, #F0CA5A, #A8862A, #D4AF3C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,175,60,0.35), transparent);
+  margin: 0;
+}
+
+/* ── Glass / blur ─────────────────────────────────── */
+.glass {
+  background: rgba(17,22,64,0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(212,175,60,0.12);
+}
+.glass-dark {
+  background: rgba(12,17,48,0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* ── Overlays ─────────────────────────────────────── */
+.cinematic-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(12,17,48,0)   0%,
+    rgba(12,17,48,0.35) 50%,
+    rgba(12,17,48,0.92) 100%
+  );
+}
+
+/* ── Borders ──────────────────────────────────────── */
+.neon-border {
+  border: 1px solid rgba(212,175,60,0.25);
+  box-shadow: inset 0 0 20px rgba(212,175,60,0.04);
+}
+
+/* ── Animations ───────────────────────────────────── */
+@keyframes pulse-green {
+  0%,100% { box-shadow: 0 0 0 0   rgba(37,211,102,0.5); }
+  50%      { box-shadow: 0 0 0 16px rgba(37,211,102,0); }
+}
+.pulse-whatsapp { animation: pulse-green 2s infinite; }
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-9px); }
+}
+.float-anim { animation: float 3.5s ease-in-out infinite; }
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+.skeleton {
+  background: linear-gradient(90deg,
+    rgba(17,22,64,1) 25%,
+    rgba(23,32,80,1) 50%,
+    rgba(17,22,64,1) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes gradient-x {
+  0%,100% { background-position: 0%   50%; }
+  50%      { background-position: 100% 50%; }
+}
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 4s ease infinite;
+}
+
+/* ── Image zoom ───────────────────────────────────── */
+.img-zoom          { overflow: hidden; }
+.img-zoom img      { transition: transform 0.65s ease; }
+.img-zoom:hover img { transform: scale(1.08); }
+
+/* ── Misc ─────────────────────────────────────────── */
+.hide-scrollbar                     { -ms-overflow-style: none; scrollbar-width: none; }
+.hide-scrollbar::-webkit-scrollbar  { display: none; }
+
+@keyframes flicker { 0%,100% { opacity:1; } 30% { opacity:0.82; } 70% { opacity:0.91; } }
+.flicker { animation: flicker 1.8s ease-in-out infinite; }
+
+@keyframes fade-in-up {
+  from { opacity:0; transform:translateY(28px); }
+  to   { opacity:1; transform:translateY(0);    }
+}
+.fade-in-up { animation: fade-in-up 0.65s ease forwards; }
+
+/* ── Corner frame decorations (like the menu cover) ── */
+.corner-frame {
+  position: relative;
+}
+.corner-frame::before,
+.corner-frame::after {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-color: rgba(212,175,60,0.45);
+  border-style: solid;
+}
+.corner-frame::before {
+  top: 12px; left: 12px;
+  border-width: 2px 0 0 2px;
+}
+.corner-frame::after {
+  bottom: 12px; right: 12px;
+  border-width: 0 2px 2px 0;
 }
