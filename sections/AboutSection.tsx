@@ -62,7 +62,6 @@ export default function AboutSection() {
               >
                 مشوي على الفحم
               </p>
-              <p className="text-gray-400 text-xs text-center">Charcoal Grilled</p>
             </motion.div>
 
             {/* Small accent image */}

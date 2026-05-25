@@ -28,7 +28,7 @@ export default function MenuCard({ item, index = 0 }: MenuCardProps) {
       {/* ══════════════════════════════════
           ZONE 1 — IMAGE
           ══════════════════════════════════ */}
-      <div className="relative flex-shrink-0 overflow-hidden h-[152px] sm:h-[170px]">
+      <div className="relative flex-shrink-0 overflow-hidden h-[165px] sm:h-[185px]">
         <Image
           src={item.image}
           alt={item.nameAr}

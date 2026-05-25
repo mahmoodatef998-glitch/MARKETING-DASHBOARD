@@ -86,7 +86,13 @@ export default function FeaturedSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0C1130] via-[#0C1130]/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-7">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="flex items-center gap-1 bg-[#D4AF3C] text-[#0C1130] text-xs font-bold px-2.5 py-1 rounded-full">
+                  <span
+                    className="flex items-center gap-1 text-white text-xs font-bold px-2.5 py-1 rounded-full"
+                    style={{
+                      background: "linear-gradient(135deg,#dc2626 0%,#b91c1c 100%)",
+                      boxShadow: "0 2px 10px rgba(220,38,38,0.55)",
+                    }}
+                  >
                     <Star size={10} fill="currentColor" />
                     الأكثر طلباً
                   </span>
@@ -170,7 +176,13 @@ export default function FeaturedSection() {
                       {formatPrice(item.price, item.currency)}
                     </span>
                     {item.bestseller && (
-                      <span className="flex items-center gap-1 bg-[#D4AF3C]/20 text-[#D4AF3C] text-[10px] font-bold px-2 py-0.5 rounded-full border border-[rgba(212,175,60,0.4)]">
+                      <span
+                        className="flex items-center gap-1 text-white text-[10px] font-bold px-2 py-0.5 rounded-full"
+                        style={{
+                          background: "linear-gradient(135deg,#dc2626 0%,#b91c1c 100%)",
+                          boxShadow: "0 1px 6px rgba(220,38,38,0.5)",
+                        }}
+                      >
                         <Star size={8} fill="currentColor" />
                         الأكثر طلباً
                       </span>
@@ -185,7 +197,7 @@ export default function FeaturedSection() {
 
         {/* Bottom row of remaining featured */}
         {featuredItems.length > 3 && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
             {featuredItems.slice(3, 6).map((item, idx) => (
               <motion.div
                 key={item.id}

@@ -18,22 +18,22 @@ export default function Home() {
       <HeroSection />
 
       {/* ── Gold divider + breathing room between every section ── */}
-      <div className="py-6">
+      <div className="py-10">
         <div className="section-divider" />
       </div>
       <FeaturedSection />
 
-      <div className="py-6">
+      <div className="py-10">
         <div className="section-divider" />
       </div>
       <MenuSection />
 
-      <div className="py-6">
+      <div className="py-10">
         <div className="section-divider" />
       </div>
       <AboutSection />
 
-      <div className="py-6">
+      <div className="py-10">
         <div className="section-divider" />
       </div>
       <ContactSection />
