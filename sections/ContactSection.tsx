@@ -14,15 +14,15 @@ const contactInfo = [
     icon: Phone,
     labelAr: "اتصل بنا",
     labelEn: "Call Us",
-    value: "+971 XX XXX XXXX",
-    href: "tel:+971XXXXXXXXX",
+    value: "+971 52 299 5639",
+    href: "tel:+971522995639",
   },
   {
     icon: MapPin,
     labelAr: "موقعنا",
     labelEn: "Location",
     value: "عجمان الراشدية | ابراج الخور",
-    href: "https://maps.google.com/?q=Al+Rashidiya,+Ajman,+UAE",
+    href: "https://maps.app.goo.gl/DUMScEWE5e2dXhKV8",
   },
 ];
 
@@ -103,7 +103,7 @@ export default function ContactSection() {
                   واتساب
                 </p>
                 <p className="text-gray-300 text-sm mt-0.5">اضغط للتواصل الفوري</p>
-                <p className="text-gray-500 text-xs mt-0.5">+971 XX XXX XXXX</p>
+                <p className="text-gray-500 text-xs mt-0.5">+971 52 299 5639</p>
               </div>
               <svg viewBox="0 0 24 24" fill="none" stroke="rgba(37,211,102,0.4)" strokeWidth="2" className="w-4 h-4 flex-shrink-0">
                 <path d="M9 18l6-6-6-6"/>
@@ -273,21 +273,34 @@ export default function ContactSection() {
               referrerPolicy="no-referrer-when-downgrade"
               title="موقع مطعم العناني — عجمان الراشدية"
             />
+            {/* Clickable overlay — opens Google Maps */}
+            <a
+              href="https://maps.app.goo.gl/DUMScEWE5e2dXhKV8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute inset-0"
+              aria-label="افتح الموقع على Google Maps"
+            />
             {/* Overlay label */}
-            <div className="absolute bottom-4 right-4 glass neon-border rounded-xl px-4 py-2.5 pointer-events-none">
+            <a
+              href="https://maps.app.goo.gl/DUMScEWE5e2dXhKV8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute bottom-4 right-4 glass neon-border rounded-xl px-4 py-2.5 hover:border-[rgba(212,175,60,0.5)] transition-all duration-200 group"
+            >
               <p
-                className="text-[#D4AF3C] font-bold text-sm leading-tight"
+                className="text-[#D4AF3C] font-bold text-sm leading-tight group-hover:text-white transition-colors"
                 style={{ fontFamily: "'Noto Sans Arabic', sans-serif" }}
               >
-                مطعم العناني
+                📍 مطعم العناني
               </p>
               <p
                 className="text-gray-400 text-xs mt-0.5"
                 style={{ fontFamily: "'Noto Sans Arabic', sans-serif" }}
               >
-                عجمان الراشدية
+                اضغط لفتح Google Maps
               </p>
-            </div>
+            </a>
           </motion.div>
         </div>
       </div>

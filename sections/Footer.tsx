@@ -288,7 +288,7 @@ export default function Footer() {
                   </div>
                   <div>
                     <p className="text-xs text-gray-600 mb-0.5">واتساب</p>
-                    <p className="text-sm text-gray-400">+971 XX XXX XXXX</p>
+                    <p className="text-sm text-gray-400">+971 52 299 5639</p>
                   </div>
                 </a>
               </li>

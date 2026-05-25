@@ -50,11 +50,28 @@ export default function MenuCard({ item, index = 0 }: MenuCardProps) {
         <div className="absolute top-3 right-3 flex flex-col gap-1.5 items-end z-10">
           {item.bestseller && (
             <span
-              className="flex items-center gap-1 text-[9px] sm:text-[10px] font-black px-2.5 py-1 rounded-full shadow"
-              style={{ background: "#D4AF3C", color: "#0C1130" }}
+              className="flex items-center gap-1 text-[9px] sm:text-[10px] font-black px-2.5 py-1 rounded-full"
+              style={{
+                background: "linear-gradient(135deg,#dc2626 0%,#b91c1c 100%)",
+                color: "#fff",
+                boxShadow: "0 2px 10px rgba(220,38,38,0.55)",
+              }}
             >
               <Star size={7} fill="currentColor" />
               الأكثر طلباً
+            </span>
+          )}
+          {item.featured && !item.bestseller && (
+            <span
+              className="flex items-center gap-1 text-[9px] sm:text-[10px] font-black px-2.5 py-1 rounded-full"
+              style={{
+                background: "linear-gradient(135deg,#D4AF3C 0%,#b8932a 100%)",
+                color: "#0C1130",
+                boxShadow: "0 2px 8px rgba(212,175,60,0.45)",
+              }}
+            >
+              <Star size={7} fill="currentColor" />
+              مميز
             </span>
           )}
           {item.spicy && (
@@ -110,28 +127,29 @@ export default function MenuCard({ item, index = 0 }: MenuCardProps) {
           {item.nameEn}
         </p>
 
-        {/* Description */}
+        {/* Description — fixed 2-line height so price stays at same level */}
         <p
-          className="line-clamp-2"
+          className="line-clamp-2 flex-shrink-0"
           style={{
             fontFamily: "'Noto Sans Arabic', sans-serif",
             fontSize: "11px",
             lineHeight: "1.7",
             color: "rgba(156,163,175,0.82)",
+            minHeight: "calc(2 * 11px * 1.7)",
           }}
         >
           {item.descriptionAr}
         </p>
 
         {/* Push price to bottom */}
-        <div className="mt-auto pt-3">
+        <div className="mt-auto pt-4">
           {/* Gold divider */}
           <div
             style={{
               height: "1px",
               background:
-                "linear-gradient(to right, transparent, rgba(212,175,60,0.18), transparent)",
-              marginBottom: "11px",
+                "linear-gradient(to right, transparent, rgba(212,175,60,0.25), transparent)",
+              marginBottom: "12px",
             }}
           />
 
